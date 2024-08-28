@@ -12,10 +12,10 @@ def preprocess(features):
     ordinal_encoder = joblib.load('ordinal_encoder.joblib')
 
     column_names = pd.read_csv('german_credit_data.csv', nrows=0).columns
-    column_names = column_names.drop('Credit amount')
+    column_names = column_names.drop('Credit amount', 'Unnamed: 0')
     input_series = pd.DataFrame([pd.Series(features, index=column_names)])
 
-    input_series.drop(columns=['Unnamed: 0'], axis=1, inplace=True)
+    # input_series.drop(columns=['Unnamed: 0'], axis=1, inplace=True)
     input_series = input_series.replace('nan', 'unknown')
     categorical_columns = ['Sex', 'Housing', 'Checking account', 'Purpose']
 
