@@ -6,10 +6,10 @@ import pandas as pd
 def preprocess(features):
 
     # Load OneHotEncoder
-    ohe = joblib.load('one_hot_encoder1.joblib')
+    ohe = joblib.load('one_hot_encoder.joblib')
 
     # Load OrdinalEncoder
-    ordinal_encoder = joblib.load('ordinal_encoder1.joblib')
+    ordinal_encoder = joblib.load('ordinal_encoder.joblib')
 
     column_names = pd.read_csv('german_credit_data.csv', nrows=0).columns
     column_names = column_names.drop('Credit amount')
@@ -20,10 +20,10 @@ def preprocess(features):
     categorical_columns = ['Sex', 'Housing', 'Checking account', 'Purpose']
 
     # Load OneHotEncoder
-    ohe = joblib.load('one_hot_encoder1.joblib')
+    ohe = joblib.load('one_hot_encoder.joblib')
 
     # Load OrdinalEncoder
-    oe = joblib.load('ordinal_encoder1.joblib')
+    oe = joblib.load('ordinal_encoder.joblib')
 
     input_series['Saving accounts'] = oe.transform(input_series[['Saving accounts']])
 
@@ -39,7 +39,7 @@ def preprocess(features):
     # Ensure that any infinite values are converted to NaN
     input_series = input_series.replace([np.inf, -np.inf], np.nan)
 
-    scaler = joblib.load('scaler1.joblib')
+    scaler = joblib.load('scaler.joblib')
 
 
     input_series = scaler.transform(input_series)

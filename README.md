@@ -39,8 +39,14 @@
 ## Техническое описание
 
 ## Описание файлов
-### UI.py
+### [UI.py](UI.py)
 Через API streamlit код создает веб-страницу, куда пользователь вводит данные и получает прогноз по нажатию на кнопку, который выполняет функция predict. 
-### input_processing.py
-Функция в файле делает предобработку отправленных пользователем данных перед функцией predict
+### [input_processing.py](input_processing.py)
+Функция в файле делает предобработку отправленных пользователем данных перед функцией predict.
+### [one_hot_encoder.joblib](one_hot_encoder.joblib)
+Обученное one-hot кодирование для категориальных признаков.
+### [ordinal_encoder.joblib](ordinal_encoder.joblib)
+Порядковое кодирование для признака Saving accounts.
+### [scaler.joblib](scaler.joblib)
+Обученная стандартизация признаков.
 
