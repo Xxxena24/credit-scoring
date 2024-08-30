@@ -9,7 +9,7 @@ from input_processing import preprocess
 
 # Функция для предсказания на основе входных данных
 def predict(features):
-    model = joblib.load("credit_risk_model1.joblib")
+    model = joblib.load("credit_risk_model11.joblib")
     return model.predict(preprocess(features))
 
 #Заголовок для приложения
@@ -20,7 +20,7 @@ st.title("Кредитный скоринг")
 
 translation = {"Мужской":'male', "Женский":'female',
                'В собственности': 'own', 'Нет': 'free', 'Аренда': 'rent',
-               'nan': 'nan', 'Малый': 'little' , 'Достаточно большой': 'quite rich', 'Большой':  'rich' , 'Умеренный': 'moderate',
+               'Нет информации': 'nan', 'Малый': 'little' , 'Достаточно большой': 'quite rich', 'Большой':  'rich' , 'Умеренный': 'moderate',
                'Радио/Телевидение':'radio/TV', 'Образование':'education', 'Мебель/Оборудование':'furniture/equipment', 'Автомобиль':'car', 'Бизнес':'business',
 'Бытовая Техника':'domestic appliances', 'Ремонт':'repairs', 'Отпуск/Другое':'vacation/others'
 }
@@ -33,8 +33,8 @@ Sex = translation[st.selectbox(
 )]
 Job = st.number_input("Работа", min_value=0, max_value=3, value=1)
 Housing = translation[st.selectbox("Недвижимость", ('В собственности', 'Нет', 'Аренда'))] #('own', 'free', 'rent')
-Saving_accounts = translation[st.selectbox("Совокупный размер сберегательных счетов", ('nan', 'Малый', 'Достаточно большой', 'Большой', 'Умеренный'))] # ('nan', 'little', 'quite rich', 'rich', 'moderate')
-Checking_account = translation[st.selectbox("Размер текущего счёта", ('Малый', 'Умеренный', 'nan', 'Большой'))] # (little, moderate, nan, rich)
+Saving_accounts = translation[st.selectbox("Совокупный размер сберегательных счетов", ('Нет информации', 'Малый', 'Достаточно большой', 'Большой', 'Умеренный'))] # ('nan', 'little', 'quite rich', 'rich', 'moderate')
+Checking_account = translation[st.selectbox("Размер текущего счёта", ('Нет информации', 'Малый', 'Умеренный', 'Большой'))] # (little, moderate, nan, rich)
 Duration = st.number_input("Длительность", min_value=4, max_value=72, value=4)
 Purpose = translation[st.selectbox("Цель", ('Радио/Телевидение', 'Образование', 'Мебель/Оборудование', 'Автомобиль', 'Бизнес', 'Бытовая Техника', 'Ремонт', 'Отпуск/Другое')
 )] # ('radio/TV', 'education', 'furniture/equipment', 'car', 'business',
