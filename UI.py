@@ -2,7 +2,6 @@ import joblib
 import streamlit as st
 import numpy as np
 import sklearn
-print(sklearn.__version__)
 
 from input_processing import preprocess
 
@@ -16,8 +15,6 @@ def predict(features):
 st.title("Кредитный скоринг")
 
 # Ввод параметров от пользователя
-#age = st.number_input("Возраст", min_value=18, max_value=100, value=30)
-
 translation = {"Мужской":'male', "Женский":'female',
                'В собственности': 'own', 'Нет': 'free', 'Аренда': 'rent',
                'Нет информации': 'nan', 'Малый': 'little' , 'Достаточно большой': 'quite rich', 'Большой':  'rich' , 'Умеренный': 'moderate',
