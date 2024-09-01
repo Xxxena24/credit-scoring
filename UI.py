@@ -9,7 +9,7 @@ from input_processing import preprocess
 
 # Функция для предсказания на основе входных данных
 def predict(features):
-    model = joblib.load("credit_risk_model11.joblib")
+    model = joblib.load("best_credit_risk_model.joblib")
     return model.predict(preprocess(features))
 
 #Заголовок для приложения
@@ -59,7 +59,7 @@ features = np.array([Age, Sex, Job, Housing, Saving_accounts,
 # Кнопка для выполнения предсказания
 if st.button("Проверить кредитоспособность"):
     result = predict(features)
-    if result > 0.5:  # Предположим, что результат 0.5 - это порог
+    if result == 1: 
         st.success("Кредит одобрен!")
     else:
         st.error("Кредит не одобрен")
