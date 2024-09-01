@@ -29,9 +29,9 @@ Sex = translation[st.selectbox(
     ("Мужской", "Женский") # male, female
 )]
 Job = st.number_input("Работа", min_value=0, max_value=3, value=1)
-Housing = translation[st.selectbox("Недвижимость", ('В собственности', 'Нет', 'Аренда'))] #('own', 'free', 'rent')
-Saving_accounts = translation[st.selectbox("Совокупный размер сберегательных счетов", ('Нет информации', 'Малый', 'Достаточно большой', 'Большой', 'Умеренный'))] # ('nan', 'little', 'quite rich', 'rich', 'moderate')
-Checking_account = translation[st.selectbox("Размер текущего счёта", ('Нет информации', 'Малый', 'Умеренный', 'Большой'))] # (little, moderate, nan, rich)
+Housing = translation[st.selectbox("Недвижимость", ('В собственности', 'Нет', 'Аренда'))]
+Saving_accounts = translation[st.selectbox("Совокупный размер сберегательных счетов", ('Нет информации', 'Малый', 'Достаточно большой', 'Большой', 'Умеренный'))] 
+Checking_account = translation[st.selectbox("Размер текущего счёта", ('Нет информации', 'Малый', 'Умеренный', 'Большой'))] 
 Duration = st.number_input("Длительность", min_value=4, max_value=72, value=4)
 Purpose = translation[st.selectbox("Цель", ('Радио/Телевидение', 'Образование', 'Мебель/Оборудование', 'Автомобиль', 'Бизнес', 'Бытовая Техника', 'Ремонт', 'Отпуск/Другое')
 )] 
