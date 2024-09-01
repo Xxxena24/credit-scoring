@@ -34,9 +34,7 @@ Saving_accounts = translation[st.selectbox("Совокупный размер с
 Checking_account = translation[st.selectbox("Размер текущего счёта", ('Нет информации', 'Малый', 'Умеренный', 'Большой'))] # (little, moderate, nan, rich)
 Duration = st.number_input("Длительность", min_value=4, max_value=72, value=4)
 Purpose = translation[st.selectbox("Цель", ('Радио/Телевидение', 'Образование', 'Мебель/Оборудование', 'Автомобиль', 'Бизнес', 'Бытовая Техника', 'Ремонт', 'Отпуск/Другое')
-)] # ('radio/TV', 'education', 'furniture/equipment', 'car', 'business',
-  #     'domestic appliances', 'repairs', 'vacation/others')
-
+)] 
 if not (19 <= Age <= 75):
     st.error("Возраст должен быть в диапазоне от 19 до 75 лет")
 
@@ -46,8 +44,6 @@ if not (0 <= Job <= 3):
 if not (4 <= Duration <= 72):
         st.error("Длительность должна быть между 4 и 72")
 
-
-# Добавьте сюда другие необходимые параметры
 
 # Сбор всех параметров в один массив
 features = np.array([Age, Sex, Job, Housing, Saving_accounts,
