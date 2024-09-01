@@ -56,7 +56,8 @@
 ### Описание решения
 К категориальным признакам ('Sex', 'Housing', 'Checking account', 'Purpose') применено one-hot кодирование.  
 К Saving accounts применено порядковое кодирование. 
-При выборе модели сравнивались Random Forest Classifier и Gradient Boosting Classifier, для обеих был сделан подбор гиперпараметров через GridSearch. 
+При выборе модели сравнивались Random Forest Classifier и Gradient Boosting Classifier, для обеих был сделан подбор гиперпараметров через GridSearch. Лучше справилась модель градиентного бустинга (roc_auc: 0.764 на тесте). 
+Анализ данных, обучение и тестирование моделей представлены в файле ### [Credit_scoring_final.ipynb](Credit_scoring_final.ipynb)
 
 
 
