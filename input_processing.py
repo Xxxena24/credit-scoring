@@ -15,7 +15,6 @@ def preprocess(features):
     column_names = column_names.drop(['Credit amount', 'Unnamed: 0'])
     input_series = pd.DataFrame([pd.Series(features, index=column_names)])
 
-    # input_series.drop(columns=['Unnamed: 0'], axis=1, inplace=True)
     input_series = input_series.replace('nan', 'unknown')
     categorical_columns = ['Sex', 'Housing', 'Checking account', 'Purpose']
 
@@ -27,16 +26,12 @@ def preprocess(features):
 
     input_series['Saving accounts'] = oe.transform(input_series[['Saving accounts']])
 
-    # Fit and transform the categorical data
     encoded_data = ohe.transform(input_series[categorical_columns]).toarray()
 
-    # Convert encoded data to DataFrame
     encoded_input_series = pd.DataFrame(encoded_data, columns=ohe.get_feature_names_out(categorical_columns))
 
-    # Concatenate with the original DataFrame
     input_series = pd.concat([input_series, encoded_input_series], axis=1).drop(categorical_columns, axis=1)
 
-    # Ensure that any infinite values are converted to NaN
     input_series = input_series.replace([np.inf, -np.inf], np.nan)
 
     scaler = joblib.load('scaler.joblib')
